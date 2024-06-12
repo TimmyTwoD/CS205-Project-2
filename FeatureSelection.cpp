@@ -221,8 +221,8 @@ int main(){
     string filename;
     int choice;
     int choice2;
-
-    cout<< "Welcome to David Liu's Feature Selection Algorithm.\nSelect the file you want to test:\n1. CS205_small_Data__17.txt\n2. CS205_large_Data__47.txt\n\n";
+    cout<<"-------------------------------------------------------------------------------------\n";
+    cout<< "Welcome to David Liu's Feature Selection Algorithm.\nSelect the file you want to test:\n1. CS205_small_Data__17.txt\n2. CS205_large_Data__47.txt\n3. NEW_DataSet.txt\n\n";
     cin >> choice;
     if (choice == 1)
     {
@@ -230,7 +230,11 @@ int main(){
     }
     else if (choice == 2)
     {
-        filename = "CS205_large_Data__95.txt";
+        filename = "CS205_large_Data__47.txt";
+    }
+    else if (choice == 3)
+    {
+        filename = "new.txt";
     }
     cout<< "Type the number of the algorithm you want to run\n\n1) Forward Selection\n2) Backward Elimination\n\n";
     cin >> choice2;
