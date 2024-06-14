@@ -222,7 +222,7 @@ int main(){
     int choice;
     int choice2;
     cout<<"-------------------------------------------------------------------------------------\n";
-    cout<< "Welcome to David Liu's Feature Selection Algorithm.\nSelect the file you want to test:\n1. CS205_small_Data__17.txt\n2. CS205_large_Data__47.txt\n3. NEW_DataSet.txt\n\n";
+    cout<< "Welcome to David Liu's Feature Selection Algorithm.\nSelect the file you want to test:\n1. CS205_small_Data__17.txt\n2. CS205_large_Data__47.txt\n3. zoo.data\n\n";
     cin >> choice;
     if (choice == 1)
     {
@@ -234,7 +234,7 @@ int main(){
     }
     else if (choice == 3)
     {
-        filename = "new.txt";
+        filename = "zoo.data";
     }
     cout<< "Type the number of the algorithm you want to run\n\n1) Forward Selection\n2) Backward Elimination\n\n";
     cin >> choice2;
@@ -245,9 +245,25 @@ int main(){
     while(getline(myfile, content)){
         stringstream row(content); 
         vector<double> temp;
+        string valueStr;
+        
+        if (choice != 3)
+        {
         while(row >> value){
-            temp.push_back(value);
+             temp.push_back(value);
         }
+        }
+
+        if (choice == 3)
+        {
+            while (getline(row, valueStr, ',')) {
+                double value;
+                stringstream valueStream(valueStr);
+                valueStream >> value;
+                temp.push_back(value);
+            }
+        }
+
         dataSet.push_back(temp);
     }
     myfile.close();
